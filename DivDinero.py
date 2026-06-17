@@ -31,7 +31,7 @@ def DivDinero():
     
 def Guardar0():
     try:
-        with open('Estudio.json', 'w', encoding='utf-8') as archivo: #guardando datos desde 0
+        with open('Ahorros.json', 'w', encoding='utf-8') as archivo: #guardando datos desde 0
             json.dump(Montos,archivo,indent=4,ensure_ascii=False)
         print('Los datos se guardaron correctamente')
     except: print('no se guardaron correctamente')
@@ -39,7 +39,7 @@ def Guardar0():
 def GuardarSuma():
     global Montos
     try:
-        with open('Estudio.json', 'r', encoding='utf-8') as archivo: #cargando los datos
+        with open('Ahorros.json', 'r', encoding='utf-8') as archivo: #cargando los datos
             MontosC = json.load(archivo)
             for key in Montos:
                 ValorActual = Montos.get(key)[0] #lo separamos de los dato 
@@ -53,7 +53,7 @@ def GuardarSuma():
 def Cargar():
     global Montos
     try:
-        with open('Estudio.json', 'r', encoding='utf-8') as archivo: #cargando los datos
+        with open('Ahorros.json', 'r', encoding='utf-8') as archivo: #cargando los datos
             Montos = json.load(archivo)                    
     except: print('no se pudo cargar correctamente')
 

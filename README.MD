@@ -5,7 +5,7 @@ Este es un script interactivo en Python diseñado para automatizar la división 
 ## Características
 
 * **División Automática:** Calcula de forma instantánea los montos destinados a cada categoría a partir de una cantidad base.
-* **Persistencia de Datos (JSON):** Guarda tu progreso financiero en un archivo local (`Estudio.json`).
+* **Persistencia de Datos (JSON):** Guarda tu progreso financiero en un archivo local (`Ahorros.json`).
 * **Modos de Guardado Flexibles:**
   * **Guardar y Sumar:** Añade los montos recién calculados al balance acumulado que ya tenías guardado.
   * **Guardar desde Cero:** Sobrescribe los datos anteriores para reiniciar tus cuentas.
