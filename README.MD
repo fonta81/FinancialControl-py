@@ -1,41 +1,43 @@
-# Gestor de Finanzas Personales (6 Jarras)
+# Financial Budget Divider (6 Jars Method)
 
-Este es un script interactivo en Python diseñado para automatizar la división de ingresos basada en el método de las **6 jarras de la libertad financiera**. Permite ingresar un monto acumulado, distribuirlo automáticamente en diferentes categorías según porcentajes asignados, y gestionar un historial persistente utilizando un archivo local en formato JSON.
+A simple Python CLI tool to distribute and manage your income using a percentage-based budgeting rule (inspired by T. Harv Eker's 6 Jars Wealth Management System). This script allows you to split an amount of money into specific categories, track the balances, and save/load your progress using a JSON file.
 
-## Características
+## Budget Allocation Categories
 
-* **División Automática:** Calcula de forma instantánea los montos destinados a cada categoría a partir de una cantidad base.
-* **Persistencia de Datos (JSON):** Guarda tu progreso financiero en un archivo local (`Ahorros.json`).
-* **Modos de Guardado Flexibles:**
-  * **Guardar y Sumar:** Añade los montos recién calculados al balance acumulado que ya tenías guardado.
-  * **Guardar desde Cero:** Sobrescribe los datos anteriores para reiniciar tus cuentas.
-* **Formateo Limpio:** Muestra las cifras con separadores de miles y dos decimales (`1,000.00`) para una lectura cómoda.
+The tool splits your funds automatically according to the following distribution percentages:
 
----
-
-## Distribución de Porcentajes
-
-El programa utiliza la siguiente configuración predeterminada para la división de los ingresos:
-
-| Categoría | Porcentaje | Descripción |
-| :--- | :---: | :--- |
-| **Basicos** | `50%` | Gastos necesarios para vivir (arriendo, servicios, comida). |
-| **MJugar** | `10%` | Dinero destinado a ocio, diversión y caprichos. |
-| **Libertad** | `10%` | Inversiones o capital destinado a generar más ingresos. |
-| **AhorrosLargoPlazo** | `10%` | Fondos para metas futuras o emergencias. |
-| **Formacion** | `10%` | Libros, cursos y educación personal. |
-| **Donativos** | `10%` | Ayuda social o regalos. |
+| Category (Spanish) | Translation / Meaning | Percentage |
+| :--- | :--- | :--- |
+| **Basicos** | Necessity / Living Expenses | 50% |
+| **Ahorros Largo Plazo** | Long-Term Savings for Expenses | 10% |
+| **formacion** | Education / Personal Growth | 10% |
+| **Libertad Financiera** | Financial Freedom Account (Investments) | 10% |
+| **Jugar** | Play / Entertainment | 10% |
+| **Donativos** | Give / Charity | 10% |
 
 ---
 
-## Estructura de Datos Interna
+## Features
 
-Para evitar la pérdida de los multiplicadores al guardar y cargar datos, el script implementa un sistema de **tuplas** dentro del diccionario principal:
+- **Automated Money Distribution:** Enter any amount and see how it splits across all categories instantaneously.
+- **Persistent Storage:** Saves your budget data securely in a local `DivDinero.json` file.
+- **Balance Accumulation:** Option to cumulative-sum your new splits into your existing saved balances or overwrite them entirely.
+- **Real-time Status:** View current calculated values and tracking dates.
 
-```python
-# Estructura: 'Nombre de la Jarra': (MontoAcumulado, PorcentajeDeDivisión)
-Montos = {
-    'El monto para Jugar es de: ': (0.0, 0.1),
-    'El monto para los basicos es de: ': (0.0, 0.5),
-    # ...
-}
+---
+
+## Requirements
+
+- Python 3.x
+- No external libraries required (uses native `json` and `datetime` modules).
+
+---
+
+## 💻 How to Run
+
+1. Clone or download this repository.
+2. Ensure you have the script named exactly `DivDinero.py`.
+3. Open your terminal or command prompt, navigate to the folder, and run:
+
+```bash
+python DivDinero.py
