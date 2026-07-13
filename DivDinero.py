@@ -5,7 +5,6 @@ import datetime
 # defie dia de hoy -> para imprimirlo
 now = datetime.datetime.now()
 Hoy = now.strftime("%Y/%m/%d")
-montoactualdiv = 0  # define el monto a dividir
 DivDinerosDicc = {  # crea las diviciones con sus porcentajes en tupla
     # [0] -> valor para ese monto // [1] -> porcentaje
     "Ahorros Largo Plazo": (0, 0.1),
@@ -18,22 +17,27 @@ DivDinerosDicc = {  # crea las diviciones con sus porcentajes en tupla
 
 
 class DinerosClass:
+    def __init__(self):
+        self.montoactualdiv = 0
+
     def MontoDiv(self, MontoActualDividir):
         global DivDinerosDicc  # para usar el diccionario antes creado
-        global montoactualdiv  # usamos la variable antes definida
-        montoactualdiv = MontoActualDividir  # la igualamos con la de la funcion MontoActualDividir -> montoactualdiv
+        self.montoactualdiv = MontoActualDividir  # la igualamos con la de la funcion MontoActualDividir -> montoactualdiv
         for NombreDeMontos, Valores in DivDinerosDicc.items():  # dividimos el dinero
             # [0]->monto actual * el procentaje // [1]-> porcentaje
             DivDinerosDicc[NombreDeMontos] = (
                 MontoActualDividir * Valores[1],
                 Valores[1],
             )
-        print("Los valores entonces seran:")  # se imprime el resultado
-        for NombreDeMontos, Dinero in DivDinerosDicc.items():
+        print("=" * 60 + "\n" + "Se hizo el proceso correctamente")  # style
+        # imrpime la cantidad que se dividio:
+        print(f"Valor total: {self.montoactualdiv}/{self.montoactualdiv:,}")
+        print(f"Fecha de la divicion: {Hoy}")  # imrpime el dia de hoy
+        for NombreDeMontos, Dinero in DivDinerosDicc.items():  # imrpime los valores
             print(f"El monto para {NombreDeMontos} = {Dinero[0]:,.2f}")
 
     def MostrarActuales(self):
-        print(f"{montoactualdiv}/{montoactualdiv:,}")  # con , de mil y sin ella
+        print(f"{self.montoactualdiv}/{self.montoactualdiv:,}")
         print(Hoy)  # imrpime el dia de hoy
         for NombreDeMontos, Dinero in DivDinerosDicc.items():  # imrpime los valores
             print(f"El monto para {NombreDeMontos} = {Dinero[0]:,.2f}")
